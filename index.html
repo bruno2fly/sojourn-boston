@@ -12,12 +12,34 @@
         }
 
         body {
-            background: linear-gradient(45deg, #1a0033, #330066, #4d1a80, #1a0033);
+            background: linear-gradient(45deg, #0a0a0a, #1a0a1a, #2a0a2a, #0a0a0a);
             background-size: 400% 400%;
             animation: gradientShift 8s ease infinite;
             font-family: 'Arial Black', sans-serif;
             color: #fff;
             overflow-x: hidden;
+            position: relative;
+        }
+        
+        .flyer-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.15;
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect fill="%23ff6b35" x="50" y="100" width="300" height="200" rx="20"/><text x="200" y="180" text-anchor="middle" fill="%23000" font-family="Arial" font-size="24" font-weight="900">MASSAÏ</text><text x="200" y="220" text-anchor="middle" fill="%23000" font-family="Arial" font-size="16">RASAAQ</text></svg>') no-repeat 10% 20%/200px 200px,
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect fill="%23f7931e" x="50" y="100" width="300" height="200" rx="20"/><text x="200" y="180" text-anchor="middle" fill="%23000" font-family="Arial" font-size="20" font-weight="900">CHAOUKI</text><text x="200" y="220" text-anchor="middle" fill="%23000" font-family="Arial" font-size="16">ALBA</text></svg>') no-repeat 80% 60%/180px 180px,
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect fill="%23fff200" x="50" y="100" width="300" height="200" rx="20"/><text x="200" y="180" text-anchor="middle" fill="%23000" font-family="Arial" font-size="24" font-weight="900">YOUNG</text><text x="200" y="220" text-anchor="middle" fill="%23000" font-family="Arial" font-size="16">SUN</text></svg>') no-repeat 20% 70%/160px 160px;
+            animation: floatFlyers 20s ease-in-out infinite;
+        }
+        
+        @keyframes floatFlyers {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(2deg); }
+            66% { transform: translateY(-10px) rotate(-1deg); }
         }
 
         @keyframes gradientShift {
@@ -120,13 +142,14 @@
         }
 
         .event-info {
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.9);
             border-radius: 20px;
             padding: 40px;
             margin: 40px 0;
             border: 2px solid #ff6b35;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 107, 53, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 107, 53, 0.3);
             animation: slideInLeft 1.2s ease;
+            backdrop-filter: blur(10px);
         }
 
         .event-title {
@@ -170,12 +193,13 @@
         }
 
         .lineup {
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.9);
             border-radius: 20px;
             padding: 40px;
             margin: 40px 0;
             border: 2px solid #f7931e;
             animation: slideInRight 1.4s ease;
+            backdrop-filter: blur(10px);
         }
 
         .lineup-title {
@@ -225,13 +249,14 @@
         }
 
         .vibe-section {
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.9);
             border-radius: 20px;
             padding: 40px;
             margin: 40px 0;
             border: 2px solid #fff200;
             text-align: center;
             animation: fadeInUp 1.6s ease;
+            backdrop-filter: blur(10px);
         }
 
         .vibe-title {
@@ -313,6 +338,7 @@
     </style>
 </head>
 <body>
+    <div class="flyer-bg"></div>
     <div class="stars" id="stars"></div>
     
     <div class="container">
